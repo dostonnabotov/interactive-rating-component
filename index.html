@@ -28,7 +28,7 @@
       <div class="[ card__rating ] [ flex ]">
         <!-- one -->
         <label for="one">
-          <input type="radio" id="one" name="rank" value="1">
+          <input type="radio" id="one" name="rank" value="1" required>
           <div class="rating__score" title="Very Dissatisfied">
             <span aria-hidden="true">1</span>
             <span class="sr-only">Very Dissatisfied</span>
@@ -78,7 +78,7 @@
   <div class="[ card ] [ flow ] [ bg-neutral-800 text-center ] hide" id="thank-you-card">
     <img src="./images/illustration-thank-you.svg" alt="thank you illustration">
     <p class="[ card__selection ] [ bg-neutral-200 text-primary ]">
-      You selected <span id="score">4</span> out of 5
+      You selected <span id="score"></span> out of 5
     </p>
 
     <h3 class="fw-700 fs-700 text-white">Thank you!</h3>
