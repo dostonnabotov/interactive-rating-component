@@ -1,3 +1,6 @@
+/* ==========
+    Root 
+=========== */
 :root {
     --clr-primary: 25 97% 53%;
 
@@ -15,7 +18,9 @@
     --fw-700: 700;
 }
 
-/* reset */
+/* ==========
+    Reset 
+=========== */
 *,
 *::before,
 *::after {
@@ -28,7 +33,9 @@ p {
     margin: 0;
 }
 
-/* global */
+/* ==========
+    Global 
+=========== */
 body {
     min-height: 100vh;
     display: grid;
@@ -49,7 +56,9 @@ h3 {
     line-height: 1.1;
 }
 
-/* composition */
+/* ==============
+    Composition 
+================= */
 .flow > *:where(:not(:first-child)) {
     margin-top: var(--flow-spacer, 1rem);
 }
@@ -64,83 +73,128 @@ h3 {
     gap: var(--gap, 1rem);
 }
 
-/* utility */
+/* ============
+    Utility 
+============= */
 .fs-700 { font-size: var(--fs-700); }
 
 .fw-700 { font-weight: var(--fw-700); }
 
+.text-center { text-align: center; }
+
 .text-primary { color: hsl( var(--clr-primary) ); }
 .text-white { color: hsl( var(--neutral-100) ); }
-
-.text-center { text-align: center; }
 
 .bg-primary { background-color: hsl( var(--clr-primary) ); }
 .bg-neutral-200 { background-color: hsl( var(--neutral-200) / .1); }
 .bg-neutral-800 { background-color: hsl( var(--neutral-800) ); }
 .bg-neutral-900 { background-color: hsl( var(--neutral-900) ); }
 
+/* Reference: https://gist.github.com/ffoodd/000b59f431e3e64e4ce1a24d5bb36034 */
 .sr-only {
-	border: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+	height: 1px !important;
+	
+    margin: -1px !important;
+	padding: 0 !important;
+
 	clip: rect(1px, 1px, 1px, 1px) !important;
 	-webkit-clip-path: inset(50%) !important;
-			clip-path: inset(50%) !important;
-	height: 1px !important;
+    clip-path: inset(50%) !important;
+	
+    border: 0 !important;
 	overflow: hidden !important;
-	margin: -1px !important;
-	padding: 0 !important;
-	position: absolute !important;
-	width: 1px !important;
 	white-space: nowrap !important;
 }
 
-/* block */
+/* ============
+    Block 
+============= */
+/* card */
 .card {
-    max-width: 26rem;
+    width: min(100% - 2rem, 26rem);
     padding: 2rem;
     border-radius: 1em;
 }
 
-.card__img {
-    border-radius: 50%;
-    padding: .7em;
+/* card--thank-you */
+.card__selection {
     width: fit-content;
+    margin-inline: auto;
+    padding: .5rem 1rem;
+    border-radius: 1.5em;
+}
+/* /card--thank-you */
+
+/* card--rating */
+.card__img {
+    width: fit-content;
+    padding: .7em;
+    border-radius: 50%;
 }
 
-.card__ranking {
+.card__rating {
     justify-content: space-between;
     padding: 1rem 0;
 }
 
-.ranking__rank {
+.rating__score {
     --_size: 3.2rem;
-    border-radius: 50%;
-    background-color: hsl( var(--neutral-200) / .1);
-    text-align: center;
     display: block;
     width: var(--_size);
     height: var(--_size);
+    text-align: center;
+
+    background-color: hsl( var(--neutral-200) / .1);
+    border-radius: 50%;
+    cursor: pointer;
+
     /* to center the text vertically. Got from stackoverflow */
     line-height: calc(var(--_size) + 2px);
-    cursor: pointer;
 }
 
-.ranking__rank:hover {
+.rating__score:hover {
     background-color: hsl( var(--clr-primary) );
     color: hsl( var(--neutral-100) );
 }
 
-/* .ranking__rank:focus,
-.ranking__rank:active {
+/*
+[1] - setting `display: none` remove from DOM,
+    and cannot be accessed through keyboard navigation,
+    which is not good for a11y
+    Therefore, I am setting position absolute to not 
+    to make the layout breaks. 
+[2] - tried to use `visibility: hidden`, but,
+    it also cannot be accessed through keyboard keys,
+    and it takes up space as well
+    So, `opacity: 0` will make it disappear
+*/
+
+input[type="radio"] { 
+    position: absolute; /* [1] */
+    opacity: 0;  /* [2] */
+}
+
+/* 
+    didn't use `:is() or :where()`,
+    as current support is around 90%
+*/
+input[type="radio"]:focus ~ .rating__score,
+input[type="radio"]:checked ~ .rating__score {
     background-color: hsl( var(--neutral-400) );
-} */
+    color: hsl( var(--neutral-100) );
+}
+/* /card--rating */
 
 .btn {
     padding: 1.5em 2em;
-    border-radius: 2rem;
-    text-transform: uppercase;
+
     font-weight: var(--fw-700);
+    text-transform: uppercase;
     letter-spacing: 2px;
     border: 0;
+    border-radius: 2rem;
     cursor: pointer;
 
     /* for link */
@@ -159,8 +213,7 @@ h3 {
     color: hsl( var(--clr-primary) );
 }
 
-/* exceptions */
-/* input[type="radio"] { display: none; } */
-
-
-input[type="radio"]:checked { background-color: hsl( var(--neutral-400) ); }
+/* ==============
+    Exceptions 
+=============== */
+.hide { display: none; }

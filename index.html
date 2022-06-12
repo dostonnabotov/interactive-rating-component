@@ -17,61 +17,75 @@
 </head>
 <body>
 
-  <!-- Rating state start -->
-  <div class="card flow bg-neutral-800">
-    <img class="card__img bg-neutral-200" src="./images/icon-star.svg" alt="">
+  <!-- Rating state -->
+  <div class="[ card ] [ flow ] [ bg-neutral-800 ]" id="rating-card">
+    <img class="[ card__img ] [ bg-neutral-200 ]" src="./images/icon-star.svg" alt="">
     <h2 class="fs-700 fw-700 text-white">How did we do?</h2>
     <p>Please let us know how we did with your support request. All feedback is appreciated 
       to help us improve our offering!</p>
+    
     <form class="grid" id="form">
-      <div class="card__ranking flex">
+      <div class="[ card__rating ] [ flex ]">
+        <!-- one -->
         <label for="one">
-          <input type="radio" id="one" name="rank" value="1" checked>
-          <span class="ranking__rank" aria-hidden="true" title="Very Dissatisfied">1</span>
-          <span class="sr-only">Very Dissatisfied</span>
+          <input type="radio" id="one" name="rank" value="1">
+          <div class="rating__score" title="Very Dissatisfied">
+            <span aria-hidden="true">1</span>
+            <span class="sr-only">Very Dissatisfied</span>
+          </div>
         </label>
+        <!-- two -->
         <label for="two">
           <input type="radio" id="two" name="rank" value="2">
-          <span class="ranking__rank" aria-hidden="true" title="Dissatisfied">2</span>
-          <span class="sr-only">Dissatisfied</span>
+          <div class="rating__score" title="Dissatisfied">
+            <span aria-hidden="true">2</span>
+            <span class="sr-only">Dissatisfied</span>
+          </div>
         </label>
+        <!-- three -->
         <label for="three">
           <input type="radio" id="three" name="rank" value="3">
-          <span class="ranking__rank" aria-hidden="true" title="OK">3</span>
-          <span class="sr-only">OK</span>
+          <div class="rating__score" title="OK">
+            <span aria-hidden="true">3</span>
+            <span class="sr-only">OK</span>
+          </div>
         </label>
+        <!-- four -->
         <label for="four">
           <input type="radio" id="four" name="rank" value="4">
-          <span class="ranking__rank" aria-hidden="true" title="Satisfied">4</span>
-          <span class="sr-only">Satisfied</span>
+          <div class="rating__score" title="Satisfied">
+            <span aria-hidden="true">4</span>
+            <span class="sr-only">Satisfied</span>
+          </div>
         </label>
+        <!-- five -->
         <label for="five">
           <input type="radio" id="five" name="rank" value="5">
-          <span  class="ranking__rank" aria-hidden="true" title="Very Satisfied">5</span>
-          <span class="sr-only">Very Satisfied</span>
+          <div class="rating__score" title="Very Satisfied">
+            <span aria-hidden="true">5</span>
+            <span class="sr-only">Very Satisfied</span>
+          </div>
         </label>
       </div>
 
       <button type="submit" class="btn" data-type="primary">Submit</button>
     </form>
   </div>
-  <!-- Rating state end -->
-
-  
-
-  <!-- 1 2 3 4 5 -->
+  <!-- /Rating state -->
 
 
-  <!-- Thank you state start -->
+  <!-- Thank you state -->
+  <div class="[ card ] [ flow ] [ bg-neutral-800 text-center ] hide" id="thank-you-card">
+    <img src="./images/illustration-thank-you.svg" alt="thank you illustration">
+    <p class="[ card__selection ] [ bg-neutral-200 text-primary ]">
+      You selected <span id="score">4</span> out of 5
+    </p>
 
-  <!-- You selected Add rating here out of 5 -->
-
-  <!-- Thank you!
-
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch! -->
-
-  <!-- Thank you state end -->
+    <h3 class="fw-700 fs-700 text-white">Thank you!</h3>
+    <p>We appreciate you taking the time to give a rating. If you ever need more support, 
+      don’t hesitate to get in touch!</p>
+  </div>
+  <!-- /Thank you state -->
 
   <script src="index.js"></script>
 </body>
