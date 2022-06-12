@@ -9,7 +9,7 @@ This is a solution to the [Interactive rating component challenge on Frontend Me
 ## Links
 
 - Solution URL -  [GitHub repository](https://github.com/dostonnabotov/interactive-rating-component)
-- Live Site URL - [Live Site](https://dostonnabotov.github.io/nft-preview-card-component-main/)
+- Live Site URL - [Live Site](https://dostonnabotov.github.io/interactive-rating-component/)
 
 ## What I learnt
 
